@@ -9,30 +9,30 @@ import org.junit.Test;
 
 public class PacienteTest {
 	
-	private static final String ERROR_NOMBRE_NULO = "ERROR: El nombre de un paciente no puede ser nulo o vac√≠o.";
-	private static final String ERROR_DNI_NULO = "ERROR: El DNI de un paciente no puede ser nulo o vac√≠o.";
-	private static final String ERROR_DNI_NO_VALIDO = "ERROR: El DNI no tiene un formato v√°lido.";
+	private static final String ERROR_NOMBRE_NULO = "ERROR: El nombre de un paciente no puede ser nulo o vacÌo.";
+	private static final String ERROR_DNI_NULO = "ERROR: El DNI de un paciente no puede ser nulo o vacÌo.";
+	private static final String ERROR_DNI_NO_VALIDO = "ERROR: El DNI no tiene un formato v·lido.";
 	private static final String ERROR_LETRA_DNI_NO_VALIDA = "ERROR: La letra del DNI no es correcta.";
-	private static final String ERROR_TELEFONO_NULO = "ERROR: El tel√©fono de un paciente no puede ser nulo o vac√≠o.";
-	private static final String ERROR_TELEFONO_NO_VALIDO = "ERROR: El tel√©fono no tiene un formato v√°lido.";
+	private static final String ERROR_TELEFONO_NULO = "ERROR: El telÈfono de un paciente no puede ser nulo o vacÌo.";
+	private static final String ERROR_TELEFONO_NO_VALIDO = "ERROR: El telÈfono no tiene un formato v·lido.";
 	private static final String ERROR_COPIAR_PACIENTE_NULO = "ERROR: No es posible copiar un paciente nulo.";
-	private static final String NOMBRE_INCORRECTO = "Deber√≠a haber saltado una excepci√≥n indicando que el nombre es incorrecto";
-	private static final String DNI_INCORRECTO = "Deber√≠a haber saltado una excepci√≥n indicando que el DNI es incorrecto";
-	private static final String TELEFONO_INCORRECTO = "Deber√≠a haber saltado una excepci√≥n indicando que el tel√©fono es incorrecto";
-	private static final String PACIENTE_NULO = "Deber√≠a haber saltado una excepci√≥n indicando que no se puede copiar un paciente nulo.";
-	private static final String MENSAJE_NO_CORRECTO = "El mensaje devuelto por la excepci√≥n no es correcto.";
-	private static final String TIPO_NO_CORRECTO = "El tipo de la excepci√≥n no es correcto.";
+	private static final String NOMBRE_INCORRECTO = "DeberÌa haber saltado una excepciÛn indicando que el nombre es incorrecto";
+	private static final String DNI_INCORRECTO = "DeberÌa haber saltado una excepciÛn indicando que el DNI es incorrecto";
+	private static final String TELEFONO_INCORRECTO = "DeberÌa haber saltado una excepciÛn indicando que el telÈfono es incorrecto";
+	private static final String PACIENTE_NULO = "DeberÌa haber saltado una excepciÛn indicando que no se puede copiar un paciente nulo.";
+	private static final String MENSAJE_NO_CORRECTO = "El mensaje devuelto por la excepciÛn no es correcto.";
+	private static final String TIPO_NO_CORRECTO = "El tipo de la excepciÛn no es correcto.";
 	private static final String CADENA_NO_ESPERADA = "La cadena devuelta no es la esperada.";
-	private static final String PACIENTE_NO_ESPERADO = "El paciente copiado deber√≠a ser el mismo que el pasado como par√°metro.";
+	private static final String PACIENTE_NO_ESPERADO = "El paciente copiado deberÌa ser el mismo que el pasado como par·metro.";
 	private static final String NOMBRE_NO_ESPERADO = "El nombre devuelto no es el mismo que el pasado al constructor.";
 	private static final String DNI_NO_ESPERADO = "El DNI devuelto no es el mismo que el pasado al constructor.";
-	private static final String TELEFONO_NO_ESPERADO = "El tel√©fono devuelto no es el mismo que el pasado al constructor.";
-	private static final String OBJETO_DEBERIA_SER_NULO = "No se deber√≠a haber creado el objeto paciente.";
-	private static final String NOMBRE_JRJR = "Jos√© Ram√≥n Jim√©nez Reyes";
+	private static final String TELEFONO_NO_ESPERADO = "El telÈfono devuelto no es el mismo que el pasado al constructor.";
+	private static final String OBJETO_DEBERIA_SER_NULO = "No se deberÌa haber creado el objeto paciente.";
+	private static final String NOMBRE_JRJR = "JosÈ RamÛn JimÈnez Reyes";
 	private static final String DNI_JRJR = "11223344B";
 	private static final String TELEFONO_JRJR = "950112233";
-	private static final String NOMBRE_MAL_ARDR = "  ANDR√âS   RuBiO   dEl             r√≠o";
-	private static final String NOMBRE_ARDR = "Andr√©s Rubio Del R√≠o";
+	private static final String NOMBRE_MAL_ARDR = "  ANDR…S   RuBiO   dEl             rÌo";
+	private static final String NOMBRE_ARDR = "AndrÈs Rubio Del RÌo";
 	private static final String DNI_ARDR = "22334455Y";
 	private static final String TELEFONO_ARDR = "666223344";
 
@@ -234,9 +234,9 @@ public class PacienteTest {
 	@Test
 	public void toStringDevuelveLaCadenaEsperada() {
 		Paciente paciente = new Paciente(NOMBRE_JRJR, DNI_JRJR, TELEFONO_JRJR);
-		assertThat(CADENA_NO_ESPERADA, paciente.toString(), is(String.format("nombre=%s (%s), DNI=%s, tel√©fono=%s", NOMBRE_JRJR, "JRJR", DNI_JRJR, TELEFONO_JRJR)));
+		assertThat(CADENA_NO_ESPERADA, paciente.toString(), is(String.format("nombre=%s (%s), DNI=%s, telÈfono=%s", NOMBRE_JRJR, "JRJR", DNI_JRJR, TELEFONO_JRJR)));
 		paciente = new Paciente(NOMBRE_MAL_ARDR, DNI_ARDR, TELEFONO_ARDR);
-		assertThat(CADENA_NO_ESPERADA, paciente.toString(), is(String.format("nombre=%s (%s), DNI=%s, tel√©fono=%s", NOMBRE_ARDR, "ARDR", DNI_ARDR, TELEFONO_ARDR)));
+		assertThat(CADENA_NO_ESPERADA, paciente.toString(), is(String.format("nombre=%s (%s), DNI=%s, telÈfono=%s", NOMBRE_ARDR, "ARDR", DNI_ARDR, TELEFONO_ARDR)));
 	}
 
 }

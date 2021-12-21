@@ -20,21 +20,21 @@ public class CitasTest {
 	private static final String ERROR_CAPACIDAD_NO_CORRECTA = "ERROR: La capacidad debe ser mayor que cero.";
 	private static final String ERROR_INSERTAR_CITA_NULA = "ERROR: No se puede insertar una cita nula.";
 	private static final String ERROR_BORRAR_CITA_NULA = "ERROR: No se puede borrar una cita nula.";
-	private static final String ERROR_NO_MAS_CITAS = "ERROR: No se aceptan m√°s citas.";
+	private static final String ERROR_NO_MAS_CITAS = "ERROR: No se aceptan m·s citas.";
 	private static final String ERROR_CITA_EXISTE = "ERROR: Ya existe una cita para esa fecha y hora.";
 	private static final String ERROR_CITA_BORRAR_NO_EXISTE = "ERROR: No existe ninguna cita para esa fecha y hora.";
-	private static final String ERROR_DIA_NULO = "ERROR: No se pueden devolver las citas para un d√≠a nulo.";
-	private static final String OPERACION_NO_PERMITIDA = "Deber√≠a haber saltado una excepci√≥n indicando que dicha operaci√≥n no est√° permitida.";
-	private static final String CITA_NULA = "Deber√≠a haber saltado una excepci√≥n indicando que no se puede operar con una cita nula.";
-	private static final String MENSAJE_NO_CORRECTO = "El mensaje devuelto por la excepci√≥n no es correcto.";
-	private static final String TIPO_NO_CORRECTO = "El tipo de la excepci√≥n no es correcto.";
-	private static final String EXCEPCION_NO_PROCEDE = "No deber√≠a haber saltado la excepci√≥n.";
-	private static final String OPERACION_NO_REALIZADA = "La operaci√≥n no la ha realizado correctamente.";
-	private static final String CITAS_NO_CREADAS = "Deber√≠a haber creado las citas correctamente.";
+	private static final String ERROR_DIA_NULO = "ERROR: No se pueden devolver las citas para un dÌa nulo.";
+	private static final String OPERACION_NO_PERMITIDA = "DeberÌa haber saltado una excepciÛn indicando que dicha operaciÛn no est· permitida.";
+	private static final String CITA_NULA = "DeberÌa haber saltado una excepciÛn indicando que no se puede operar con una cita nula.";
+	private static final String MENSAJE_NO_CORRECTO = "El mensaje devuelto por la excepciÛn no es correcto.";
+	private static final String TIPO_NO_CORRECTO = "El tipo de la excepciÛn no es correcto.";
+	private static final String EXCEPCION_NO_PROCEDE = "No deberÌa haber saltado la excepciÛn.";
+	private static final String OPERACION_NO_REALIZADA = "La operaciÛn no la ha realizado correctamente.";
+	private static final String CITAS_NO_CREADAS = "DeberÌa haber creado las citas correctamente.";
 	private static final String REFERENCIA_NO_ESPERADA = "La referencia devuelta es la misma que la pasada.";
-	private static final String TAMANO_NO_ESPERADO = "El tama√±o devuelto no es el esperado.";
-	private static final String CITA_NO_ESPERADA = "La cita devuelta no es la que deber√≠a ser.";
-	private static final String OBJETO_DEBERIA_SER_NULO = "No se deber√≠a haber creado el objeto.";
+	private static final String TAMANO_NO_ESPERADO = "El tamaÒo devuelto no es el esperado.";
+	private static final String CITA_NO_ESPERADA = "La cita devuelta no es la que deberÌa ser.";
+	private static final String OBJETO_DEBERIA_SER_NULO = "No se deberÌa haber creado el objeto.";
 	
 	private static Paciente paciente1;
 	private static Paciente paciente2;
@@ -49,8 +49,8 @@ public class CitasTest {
 	
 	@BeforeClass
 	public static void asignarValoresAtributos() {
-		paciente1 = new Paciente("Jos√© Ram√≥n Jim√©nez Reyes", "11223344B", "950112233");
-		paciente2 = new Paciente("Andr√©s Rubio Del R√≠o", "22334455Y", "666223344");
+		paciente1 = new Paciente("JosÈ RamÛn JimÈnez Reyes", "11223344B", "950112233");
+		paciente2 = new Paciente("AndrÈs Rubio Del RÌo", "22334455Y", "666223344");
 		paciente3 = new Paciente("Bob Esponja", "33445566R", "600334455");
 		fechaHora1 = LocalDateTime.of(2019, 10, 15, 9, 0);
 		fechaHora2 = LocalDateTime.of(2019, 10, 15, 9, 30);

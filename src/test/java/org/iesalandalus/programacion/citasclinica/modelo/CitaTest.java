@@ -18,18 +18,18 @@ public class CitaTest {
 	private static final String ERROR_CITA_NULA = "ERROR: No se puede copiar una cita nula.";
 	private static final String ERROR_PACIENTE_NULO = "ERROR: El paciente de una cita no puede ser nulo.";
 	private static final String ERROR_FECHA_HORA_NULA = "ERROR: La fecha y hora de una cita no puede ser nula.";
-	private static final String PACIENTE_INCORRECTO = "Deber√≠a haber saltado una excepci√≥n indicando que el paciente es incorrecto";
-	private static final String FECHA_HORA_INCORRECTA = "Deber√≠a haber saltado una excepci√≥n indicando que la fecha y hora son incorrectas";
-	private static final String CITA_NULA = "Deber√≠a haber saltado una excepci√≥n indicando que no se puede copiar una cita nula.";
-	private static final String MENSAJE_NO_CORRECTO = "El mensaje devuelto por la excepci√≥n no es correcto.";
-	private static final String TIPO_NO_CORRECTO = "El tipo de la excepci√≥n no es correcto.";
+	private static final String PACIENTE_INCORRECTO = "DeberÌa haber saltado una excepciÛn indicando que el paciente es incorrecto";
+	private static final String FECHA_HORA_INCORRECTA = "DeberÌa haber saltado una excepciÛn indicando que la fecha y hora son incorrectas";
+	private static final String CITA_NULA = "DeberÌa haber saltado una excepciÛn indicando que no se puede copiar una cita nula.";
+	private static final String MENSAJE_NO_CORRECTO = "El mensaje devuelto por la excepciÛn no es correcto.";
+	private static final String TIPO_NO_CORRECTO = "El tipo de la excepciÛn no es correcto.";
 	private static final String CADENA_NO_ESPERADA = "La cadena devuelta no es la esperada.";
-	private static final String CITA_NO_ESPERADA = "La cita copiada deber√≠a ser la misma que la pasada como par√°metro.";
+	private static final String CITA_NO_ESPERADA = "La cita copiada deberÌa ser la misma que la pasada como par·metro.";
 	private static final String REFERENCIA_CITA_NO_ESPERADA = "La referencia de la cita devuelta es la misma que la pasada al constructor.";
 	private static final String PACIENTE_NO_ESPERADO = "El paciente devuelto no es el mismo que el pasado al constructor.";
 	private static final String REFERENCIA_PACIENTE_NO_ESPERADA = "La referencia del paciente devuelta es la misma que la pasada al constructor.";
 	private static final String FECHA_HORA_NO_ESPERADA = "La fehca y hora no son las mismas que las pasadas al constructor.";
-	private static final String OBJETO_DEBERIA_SER_NULO = "No se deber√≠a haber creado el objeto cita.";
+	private static final String OBJETO_DEBERIA_SER_NULO = "No se deberÌa haber creado el objeto cita.";
 	
 	private static Paciente paciente1;
 	private static Paciente paciente2;
@@ -38,8 +38,8 @@ public class CitaTest {
 	
 	@BeforeClass
 	public static void asignarValoresAtributos() {
-		paciente1 = new Paciente("Jos√© Ram√≥n Jim√©nez Reyes", "11223344B", "950112233");
-		paciente2 = new Paciente("Andr√©s Rubio Del R√≠o", "22334455Y", "666223344");
+		paciente1 = new Paciente("JosÈ RamÛn JimÈnez Reyes", "11223344B", "950112233");
+		paciente2 = new Paciente("AndrÈs Rubio Del RÌo", "22334455Y", "666223344");
 		fechaHora1 = LocalDateTime.of(2019, 9, 15, 12, 0);
 		fechaHora2 = LocalDateTime.of(2019, 9, 15, 12, 30);
 	}
