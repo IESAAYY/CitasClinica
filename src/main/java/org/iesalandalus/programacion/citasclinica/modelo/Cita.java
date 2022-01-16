@@ -72,6 +72,6 @@ public class Cita {
 
     @Override
     public String toString() {
-        return "fechaHora= " + fechaHora.format(DateTimeFormatter.ofPattern(FORMATO_FECHA_HORA)) + " " + paciente;
+        return "fechaHora= " + fechaHora.format(DateTimeFormatter.ofPattern(FORMATO_FECHA_HORA)) + ", " + paciente;
     }
 }
