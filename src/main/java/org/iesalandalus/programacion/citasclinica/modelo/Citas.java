@@ -20,14 +20,14 @@ public class Citas {
 		tamano = 0;
 
 	}
-
+	
 	public Cita[] getCitas() {
 		return arrayCitas;
 
 	}
-
-	public Cita[] getCitas(LocalDate localDate) {
-
+	
+public Cita[] getCitas(LocalDate localDate) {
+		
 		if (localDate == null) {
 			throw new NullPointerException("ERROR: No se pueden devolver las citas para un día nulo.");
 		}
@@ -41,7 +41,7 @@ public class Citas {
 			}
 		}
 		return arrayLocalDate;
-
+		
 	}
 
 	private boolean capacidadSuperada(int capacidad) {
@@ -55,6 +55,7 @@ public class Citas {
 	}
 
 	private boolean tamanoSuperado(int tamano) {
+		
 		if (tamano >= this.tamano) {
 			return true;
 		} else {
@@ -81,28 +82,28 @@ public class Citas {
 		return indice;
 	}
 
-	public void insertar(Cita c) throws OperationNotSupportedException {
+	public void insertar(Cita cita) throws OperationNotSupportedException {
 
-		if (c == null) {
+		if (cita == null) {
 			throw new NullPointerException("ERROR: No se puede insertar una cita nula.");
 		}
 
-		if (!tamanoSuperado(buscarIndice(c))) {
+		if (!tamanoSuperado(buscarIndice(cita))) {
 			throw new OperationNotSupportedException("ERROR: Ya existe una cita para esa fecha y hora.");
 		}
 
-		if (capacidadSuperada(buscarIndice(c))) {
+		if (capacidadSuperada(buscarIndice(cita))) {
 			throw new OperationNotSupportedException("ERROR: No se aceptan más citas.");
 		}
 
-		arrayCitas[buscarIndice(c)] = new Cita(c);
+		arrayCitas[buscarIndice(cita)] = new Cita(cita);
 		tamano++;
 	}
 
-	public Cita buscar(Cita c) {
+	public Cita buscar(Cita cita) {
 
-		if (!tamanoSuperado(buscarIndice(c))) {
-			return new Cita(c);
+		if (!tamanoSuperado(buscarIndice(cita))) {
+			return new Cita (cita);
 		} else {
 			return null;
 		}
@@ -110,7 +111,7 @@ public class Citas {
 	}
 
 	private void desplazarUnaPosicionHaciaIzquierda(int indice) {
-
+	
 		for (int i = indice; i < tamano; i++) {
 
 			arrayCitas[i] = arrayCitas[i + 1];
@@ -126,7 +127,7 @@ public class Citas {
 	public int getCapacidad() {
 		return capacidad;
 	}
-
+	
 	public void borrar(Cita cita) throws OperationNotSupportedException {
 
 		if (cita == null) {
@@ -138,7 +139,7 @@ public class Citas {
 		} else {
 			throw new OperationNotSupportedException("ERROR: No existe ninguna cita para esa fecha y hora.");
 		}
-
+		
 	}
 
 }

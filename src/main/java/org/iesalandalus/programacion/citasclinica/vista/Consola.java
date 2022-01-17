@@ -19,15 +19,16 @@ public class Consola {
 
 	public static void mostrarMenu() {
 
-		System.out.println("Menú de opciones");
-		System.out.println("*********************************************************************");
-		System.out.println("1. Insertar una nueva cita.");
-		System.out.println("2. Buscar una cita creada");
-		System.out.println("3. Borrar una cita creada");
-		System.out.println("4. Mostrar las citas de un día determinado");
-		System.out.println("5. Mostrar todas las citas");
-		System.out.println("0. Salir del programa");
-		System.out.println("*********************************************************************");
+		System.out.println("|******************************************|");
+		System.out.println("|Menú de opciones                          |");
+		System.out.println("|******************************************|");
+		System.out.println("|1. Insertar una nueva cita.               |");
+		System.out.println("|2. Buscar una cita creada                 |");
+		System.out.println("|3. Borrar una cita creada                 |");
+		System.out.println("|4. Mostrar las citas de un día determinado|");
+		System.out.println("|5. Mostrar todas las citas                |");
+		System.out.println("|0. Salir del programa                     |");
+		System.out.println("********************************************");
 
 	}
 
@@ -36,7 +37,7 @@ public class Consola {
 		Opciones[] opcion = Opciones.values();
 
 		do {
-			System.out.println("Elige una opción(0 - 5");
+			System.out.println("Elige una opción(0 - 5): ");
 			oIntroducido = Entrada.entero();
 
 		} while (oIntroducido < 0 || oIntroducido > 5);
@@ -86,7 +87,7 @@ public class Consola {
 		return fechaHora;
 	}
 	
-	public Cita leerCita() {
+	public static Cita leerCita() {
 		
 		Cita cita = new Cita(leerPaciente(), leerFechaHora());
 		
