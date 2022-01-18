@@ -12,6 +12,7 @@ public class Citas {
 	Cita[] arrayCitas;
 
 	public Citas(int capacidad) {
+		
 		if (capacidad <= 0) {
 			throw new IllegalArgumentException("ERROR: La capacidad debe ser mayor que cero.");
 		}
@@ -22,6 +23,7 @@ public class Citas {
 	}
 	
 	public Cita[] getCitas() {
+		
 		return arrayCitas;
 
 	}
@@ -80,6 +82,7 @@ public Cita[] getCitas(LocalDate localDate) {
 			}
 		}
 		return indice;
+		
 	}
 
 	public void insertar(Cita cita) throws OperationNotSupportedException {
@@ -98,6 +101,7 @@ public Cita[] getCitas(LocalDate localDate) {
 
 		arrayCitas[buscarIndice(cita)] = new Cita(cita);
 		tamano++;
+		
 	}
 
 	public Cita buscar(Cita cita) {
@@ -121,11 +125,15 @@ public Cita[] getCitas(LocalDate localDate) {
 	}
 
 	public int getTamano() {
+		
 		return tamano;
+		
 	}
 
 	public int getCapacidad() {
+		
 		return capacidad;
+		
 	}
 	
 	public void borrar(Cita cita) throws OperationNotSupportedException {

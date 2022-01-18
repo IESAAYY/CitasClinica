@@ -15,18 +15,21 @@ public class Paciente {
 
 	// Constructores
 	public Paciente(String nombre, String dni, String telefono) {
+		
 		setNombre(nombre);
 		setDni(dni);
 		setTelefono(telefono);
 	}
 
 	public Paciente(Paciente p) {
+		
 		if (p == null) {
 			throw new NullPointerException("ERROR: No es posible copiar un paciente nulo.");
 		}
 		setNombre(p.getNombre());
 		setDni(p.getDni());
 		setTelefono(p.getTelefono());
+		
 	}
 
 	// Métodos
@@ -36,15 +39,19 @@ public class Paciente {
 			throw new NullPointerException("ERROR: El nombre de un paciente no puede ser nulo o vacío.");
 		}
 		this.nombre = formateaNombre(nombre);
+		
 	}
 
 	public String getNombre() {
+		
 		return nombre;
+		
 	}
 
 	private String formateaNombre(String nombre) {
-		nombre = nombre.toLowerCase().trim();
+		
 		nombre = nombre.replaceAll(" +", " ");
+		nombre = nombre.trim().toLowerCase();
 
 		String resultado = "";
 		String arrayPalabra[] = nombre.split(" ");
@@ -53,13 +60,15 @@ public class Paciente {
 			arrayPalabra[i] = arrayPalabra[i].replace(arrayPalabra[i].substring(0, 1),
 					arrayPalabra[i].substring(0, 1).toUpperCase()) + " ";
 			resultado += arrayPalabra[i];
-		}
-
-		return resultado;
+		}		
+		return resultado.trim();
+		
 	}
 
 	private String getIniciales() {
+		
 		String iniciales = "";
+		
 		formateaNombre(nombre);
 
 		String arrayPalabra[] = nombre.split(" ");
@@ -68,9 +77,11 @@ public class Paciente {
 		}
 
 		return iniciales;
+		
 	}
 
 	public void setTelefono(String telefono) {
+		
 		if (telefono == null || telefono.trim().isEmpty()) {
 			throw new NullPointerException("ERROR: El teléfono de un paciente no puede ser nulo o vacío.");
 		}
@@ -82,10 +93,13 @@ public class Paciente {
 	}
 
 	public String getTelefono() {
+		
 		return telefono;
+		
 	}
 
 	private void setDni(String dni) {
+		
 		if (dni == null || dni.trim().isEmpty()) {
 			throw new NullPointerException("ERROR: El DNI de un paciente no puede ser nulo o vacío.");
 		}
@@ -96,6 +110,7 @@ public class Paciente {
 			throw new IllegalArgumentException("ERROR: La letra del DNI no es correcta.");
 		}
 		this.dni = dni;
+		
 	}
 
 	public String getDni() {
@@ -103,6 +118,7 @@ public class Paciente {
 	}
 
 	private boolean comprobarLetraDni(String dni) {
+		
 		this.dni = dni;
 		int numeros = Integer.parseInt(dni.substring(0, 8));
 		char letra = dni.charAt(8);
@@ -117,15 +133,19 @@ public class Paciente {
 		} else {
 			return false;
 		}
+		
 	}
 
 	@Override
 	public int hashCode() {
+		
 		return Objects.hash(dni);
+		
 	}
 
 	@Override
 	public boolean equals(Object obj) {
+		
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -134,11 +154,14 @@ public class Paciente {
 			return false;
 		Paciente other = (Paciente) obj;
 		return Objects.equals(dni, other.dni);
+		
 	}
 
 	@Override
 	public String toString() {
-		return "nombre=" + nombre + "(" + getIniciales() + ")" + ", DNI=" + dni + ", teléfono=" + telefono;
+		
+		return "nombre=" + nombre + " (" + getIniciales() + ")" + ", DNI=" + dni + ", teléfono=" + telefono;
+		
 	}
 
 }

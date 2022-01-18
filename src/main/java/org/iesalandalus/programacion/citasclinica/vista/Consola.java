@@ -19,6 +19,7 @@ public class Consola {
 
 	public static void mostrarMenu() {
 
+		System.out.println("");
 		System.out.println("|******************************************|");
 		System.out.println("|Menú de opciones                          |");
 		System.out.println("|******************************************|");
@@ -37,8 +38,10 @@ public class Consola {
 		Opciones[] opcion = Opciones.values();
 
 		do {
-			System.out.println("Elige una opción(0 - 5): ");
+			System.out.println("");
+			System.out.print("Elige una opción (0 - 5): ");
 			oIntroducido = Entrada.entero();
+			System.out.println("");
 
 		} while (oIntroducido < 0 || oIntroducido > 5);
 
@@ -74,6 +77,7 @@ public class Consola {
 
 		do {
 			try {
+				System.out.println("");
 				System.out.println("Introduce el día, el mes, el año, la hora y los minutos en el siguiente formato ");
 				System.out.print(Cita.FORMATO_FECHA_HORA + " (Ejemplo: 17/01/2022 14:07): ");
 				fechaHora = LocalDateTime.parse(Entrada.cadena(), formatoFechaHora);
@@ -90,6 +94,7 @@ public class Consola {
 	public static Cita leerCita() {
 		
 		Cita cita = new Cita(leerPaciente(), leerFechaHora());
+		System.out.println("");
 		
 		return cita;
 		
@@ -110,8 +115,8 @@ public class Consola {
 				fHValida = true;
 			} catch (DateTimeParseException e) {
 				fHValida = false;
-				System.out.println("");
 			}
+			System.out.println("");
 		} while (!fHValida);
 
 		return fechaHora;

@@ -14,52 +14,68 @@ import org.iesalandalus.programacion.citasclinica.vista.Opciones;
 
 public class MainApp {
 
-	public static final int NUM_MAX_CITAS = 50;
+	public static final int NUM_MAX_CITAS = 1;
+	
 	static Citas citas = new Citas(NUM_MAX_CITAS);
 
 	private static void insertarCita() throws OperationNotSupportedException {
 
 		try {
+			System.out.println(".................................");
 			System.out.println("Opción 1. Insertar una nueva cita");
+			System.out.println(".................................");
 			System.out.println("");
+			
 			Cita cita = Consola.leerCita();
+			
 			citas.insertar(cita);
+			
+			System.out.println("Cita insertada correctamente, datos de la cita: ");
+			System.out.println(cita);
+			System.out.println("");
 		} catch (NullPointerException | OperationNotSupportedException | IllegalArgumentException e) {
-			System.out.println(e.getMessage());
-			System.out.println("");
-			System.out.println("Error: Datos introducidos no válidos");
+			if (citas.getTamano() == NUM_MAX_CITAS) {
+				System.out.println(e.getMessage());
+			} else {
 			System.out.println("Introduce correctamente los datos solicitados");
+			}
 			System.out.println("");
-			insertarCita();
 		}
 
 	}
 
 	private static void buscarCita() {
 
+		System.out.println("................................");
 		System.out.println("Opción 2. Buscar una cita creada");
-		System.out.println("");
+		System.out.println("................................");
 
 		Paciente paciente = new Paciente("Paciente", "11223344B", "923456789");
 		LocalDateTime fechaHora = Consola.leerFechaHora();
 
-		DateTimeFormatter formato = DateTimeFormatter.ofPattern("h 'y' m 'del' d 'de' MMMM 'de' yyyy");
+		DateTimeFormatter formato = DateTimeFormatter.ofPattern("hh:mm 'del' d 'de' MMMM 'de' yyyy");
 
 		Cita cita = new Cita(paciente, fechaHora);
 
-		System.out.println("");
-
 		if (citas.buscar(cita) != null) {
-			System.out.println(cita);
+			System.out.println("");
+			System.out
+					.println("Se ha encontrado una cita en la fecha y hora introducida: " + fechaHora.format(formato));
+			System.out.println("");
 		} else {
-			System.out.println("Lo sentimos, no existe una cita para las " + fechaHora.format(formato));
+			System.out.println("");
+			System.out.println("Lo sentimos, no se ha encontrado ninguna cita en la fecha y hora introducida: "
+					+ fechaHora.format(formato));
+			System.out.println("");
 		}
 	}
 
 	private static void borrarCita() throws OperationNotSupportedException {
 
 		try {
+			System.out.println("................................");
 			System.out.println("Opción 3. Borrar una cita creada");
+			System.out.println("................................");
 			System.out.println("");
 
 			Paciente paciente = new Paciente("Paciente", "11223344B", "923456789");
@@ -78,57 +94,105 @@ public class MainApp {
 
 	}
 
-	private static void mostrarCitas() {
-
-		System.out.println("Método pendiente de finalizar");
-		
-	}
-
 	private static void mostrarCitasDia() {
 
-		System.out.println("Método pendiente de finalizar");
+		System.out.println(".................................................");
+		System.out.println("Opcion 4. Mostrar las citas de un día determinado");
+		System.out.println(".................................................");
+		System.out.println("");
+
+		LocalDate fHIntroducida = Consola.leerFecha();
+
+		Cita[] citaFecha = citas.getCitas(fHIntroducida);
+
+		if (citaFecha != null) {
+			System.out.println("Citas encontrada para la fecha " + fHIntroducida + ":");
+			for (Cita i : citaFecha) {
+				System.out.println(i);
+			}
+		} 
 		
+		if (citas.getTamano() == 0) {
+			System.out.println("No se ha encontrado cita para la fecha introducida debido a que actualmente no existen citas en este gestor");
+			System.out.println("Inserta primero una cita para mostrarla");
+		} 
+		
+		System.out.println();
+	}
+
+	private static void mostrarCitas() {
+
+		System.out.println(".................................");
+		System.out.println("Opcion 5. Mostrar todas las citas");
+		System.out.println(".................................");
+		System.out.println("");
+
+		if (citas.getTamano() != 0) {
+			for (int i = 0; i < citas.getTamano(); i++) {
+				System.out.println(citas.getCitas()[i]);
+			}
+		} else {
+			System.out.println("Inserta primero una cita para poder mostrarla");
+		}
+		
+		System.out.println("");
 	}
 
 	private static void ejecutarOpcion(Opciones opcion) throws OperationNotSupportedException {
 
 		switch (opcion) {
 		case INSERTAR_CITA:
+			System.out.println("-------------------------------------------------------------------------------------------------------------");
 			insertarCita();
+			System.out.println("-------------------------------------------------------------------------------------------------------------");
 			break;
 
 		case BUSCAR_CITA:
+			System.out.println("-------------------------------------------------------------------------------------------------------------");
 			buscarCita();
+			System.out.println("-------------------------------------------------------------------------------------------------------------");
 			break;
 
 		case BORRAR_CITA:
+			System.out.println("-------------------------------------------------------------------------------------------------------------");
 			borrarCita();
-			break;
-
-		case MOSTRAR_CITAS:
-			mostrarCitas();
+			System.out.println("-------------------------------------------------------------------------------------------------------------");
 			break;
 
 		case MOSTRAR_CITAS_DIA:
+			System.out.println("-------------------------------------------------------------------------------------------------------------");
+			mostrarCitasDia();
+			System.out.println("-------------------------------------------------------------------------------------------------------------");
+			break;
+
+		case MOSTRAR_CITAS:
+			System.out.println("-------------------------------------------------------------------------------------------------------------");
 			mostrarCitas();
+			System.out.println("-------------------------------------------------------------------------------------------------------------");
 			break;
 
 		case SALIR:
+			System.out.println("-------------------------------------------------------------------------------------------------------------");
 			System.out.println("Programa finalizado");
+			System.out.println("-------------------------------------------------------------------------------------------------------------");
 		}
 
 	}
 
 	public static void main(String[] args) throws OperationNotSupportedException {
+		
 		Opciones opcion;
+
+		System.out.println("        =-=-=-=-=-=-=-=-=-=-=-=-=-");
+		System.out.println("        |Gestor de citas clínicas|");
+		System.out.println("        =-=-=-=-=-=-=-=-=-=-=-=-=-");
 
 		do {
 			Consola.mostrarMenu();
 			opcion = Consola.elegirOpcion();
 			ejecutarOpcion(opcion);
 		} while (opcion != Opciones.SALIR);
-		System.out.println("Programa finalizado");
-
+		
 	}
 
 }
