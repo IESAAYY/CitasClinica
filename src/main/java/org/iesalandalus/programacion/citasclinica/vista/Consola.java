@@ -1,5 +1,6 @@
 package org.iesalandalus.programacion.citasclinica.vista;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -84,7 +85,8 @@ public class Consola {
 				fHValida = true;
 			} catch (DateTimeParseException e) {
 				fHValida = false;
-				System.out.println("");
+				System.out.println(e.getMessage());
+				System.out.println(e.getClass());
 			}
 		} while (!fHValida);
 

@@ -14,11 +14,17 @@ public class Paciente {
 	private String telefono;
 
 	// Constructores
+	
+	public Paciente() {
+		
+	}
+	
 	public Paciente(String nombre, String dni, String telefono) {
 		
 		setNombre(nombre);
 		setDni(dni);
 		setTelefono(telefono);
+	
 	}
 
 	public Paciente(Paciente p) {

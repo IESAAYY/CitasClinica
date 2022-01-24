@@ -11,6 +11,10 @@ public class Citas {
 
 	Cita[] arrayCitas;
 
+	public Citas() {
+		
+	}
+	
 	public Citas(int capacidad) {
 		
 		if (capacidad <= 0) {
