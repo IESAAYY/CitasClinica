@@ -73,11 +73,7 @@ public Cita[] getCitas(LocalDate localDate) {
 
 		int indice = 0;
 		boolean citaEncontrada = false;
-		for (int i = 0; !tamanoSuperado(i) && !citaEncontrada; i++) {
-			if (arrayCitas[indice].equals(cita)) {
-				citaEncontrada = true;
-			}
-		}
+		
 		while (!tamanoSuperado(indice) && !citaEncontrada) {
 			if (arrayCitas[indice].equals(cita)) {
 				citaEncontrada = true;
@@ -85,6 +81,7 @@ public Cita[] getCitas(LocalDate localDate) {
 				indice++;
 			}
 		}
+		
 		return indice;
 		
 	}
